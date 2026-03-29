@@ -1,0 +1,22 @@
+name: Procesar TXT
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - run: python reenumerar_stations_KIMI_v1.py input.txt
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: resultado
+        path: "*_transformado.txt"
