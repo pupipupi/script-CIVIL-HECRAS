@@ -25,8 +25,10 @@ jobs:
     - name: Ver archivos generados
       run: ls -l
 
-    - name: Subir resultado
+    - name: Subir resultados
       uses: actions/upload-artifact@v4
       with:
-        name: resultado
-        path: input_transformado.txt
+        name: resultados
+        path: |
+          input_transformado.txt
+          input_stations_originales.txt
