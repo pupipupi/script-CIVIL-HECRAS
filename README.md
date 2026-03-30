@@ -4,7 +4,7 @@ Si ya existe un archivo "input.txt" se debe eliminar previamente.
 Ir a "Actions" y correr.
 
 Luego de que corra el script buscar en el resultado del proceso "Subir resultado" y luego la línea "Artifacts download URL: ...".
-Pinchar en el link y descargar el nuevo archivo .txt transformado y el archivo con las estaciones originales.
+Pinchar en el link y descargar el .zip que contiene el nuevo archivo .txt transformado y el archivo .txt con el nombre de las estaciones originales.
 
 Copiar la información de este .txt descargado y pegarla en una copia del archivo .GEO que genera HECRAS.
 Luego importar este archivo .GEO nuevo en HECRAS como "GIS format" en "Geometric Data".
