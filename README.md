@@ -2,7 +2,8 @@ Cargar el archivo de entrada *.GEO exportado desde CIVIL a HECRAS pero cambiar e
 
 Ir a "Actions" y correr.
 
-Buscar en "Artifacts" cuando corra el script y buscar el link de descarga del nuevo archivo .txt y descargar.
+Luego de que corra el script buscar en el resultado del proceso "Subir resultado" y luego la línea "Artifacts download URL: ...".
+Pinchar en el link y descargar del nuevo archivo .txt.
 
 Cambiar el nombre del archivo nuevo descargado a *.GEO e importar en HECRAS como "GIS format" en "Geometric Data".
 
