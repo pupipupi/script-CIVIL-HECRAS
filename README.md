@@ -4,7 +4,7 @@ Si ya existe un archivo "input.txt" se debe eliminar previamente.
 Ir a "Actions" y correr.
 
 Luego de que corra el script buscar en el resultado del proceso "Subir resultado" y luego la línea "Artifacts download URL: ...".
-Pinchar en el link y descargar del nuevo archivo .txt.
+Pinchar en el link y descargar el nuevo archivo .txt.
 
 Cambiar el nombre del archivo nuevo descargado a *.GEO e importar en HECRAS como "GIS format" en "Geometric Data".
 
