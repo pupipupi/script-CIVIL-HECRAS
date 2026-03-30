@@ -6,7 +6,9 @@ Ir a "Actions" y correr.
 Luego de que corra el script buscar en el resultado del proceso "Subir resultado" y luego la línea "Artifacts download URL: ...".
 Pinchar en el link y descargar el nuevo archivo .txt.
 
-Cambiar el nombre del archivo nuevo descargado a *.GEO e importar en HECRAS como "GIS format" en "Geometric Data".
+Copiar la información que está en el archivo nuevo descargado y pegar en una copia del archivo *.GEO que genera HECRAS.
+Luego importar el archivo *.GEO nuevo en HECRAS como "GIS format" en "Geometric Data".
+Seleccionar "SI (metric) units" y luego "Finished - Import Data".
 
 En HECRAS se debe corregir solo los "Reach Legnths", ya que estan corridos. El ultimo corte debe tener distancia 0
 
