@@ -1,4 +1,4 @@
-Cargar el archivo de entrada *.GEO exportado desde CIVIL a HECRAS pero cambiar el nombre a "input.txt"
+Cargar el archivo de entrada *.GEO exportado desde CIVIL a HECRAS pero cambiar el nombre y extensión a "input.txt"
 Si ya existe un archivo "input.txt" se debe eliminar previamente.
 
 Ir a "Actions" y correr.
