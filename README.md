@@ -1,4 +1,6 @@
-Procesar TXT
+# Procesar TXT
+
+Sirve para transformar un archivo de exportacion HECRAS generado por CIVIL. Permite corregir la orientación del flujo y dibujar el perfil longitudinal invertido simplemente cambiando el nombre de las "STATION" de los "River Station".
 
 Cargar el archivo de entrada *.GEO exportado desde CIVIL a HECRAS pero cambiar el nombre y extensión a "input.txt"
 Si ya existe un archivo "input.txt" se debe eliminar previamente.
@@ -17,5 +19,6 @@ Además se debe poner en la descripción de los transversales la información de
 
 Para volver a transformar otro archivo se debe repetir el proceso.
 
+# Procesar TXT
 
-
+Sirve para centrar las secciones de un archivo de geometría de HECRAS ya que al ser importador desde el archivo HECRAS generado por CIVIL el 0 queda a la izquierda y no en el centro.
