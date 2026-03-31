@@ -29,55 +29,64 @@ def centrar_secciones_txt(input_file):
             new_lines.append(line)
 
             match = re.search(r'=\s*(\d+)', line)
+            if not match:
+                print("⚠️ No se pudo leer número de puntos")
+                return
+
             n_points = int(match.group(1))
 
-            coords = []
-
-            # Leer todas las líneas del bloque
             block_lines = lines[i+1:i+1+n_points]
 
             all_numbers = []
+            number_positions = []
 
-            # Extraer TODOS los números
-            for bl in block_lines:
-                nums = re.findall(r'-?\d+\.\d+', bl)
-                all_numbers.extend(nums)
+            # Extraer números con posición exacta
+            for line_idx, bl in enumerate(block_lines):
+                for m in re.finditer(r'-?\d+\.\d+', bl):
+                    all_numbers.append(float(m.group()))
+                    number_positions.append((line_idx, m.start(), m.end(), m.group()))
 
-            # Convertir a pares (X,Y)
-            for j in range(0, len(all_numbers), 2):
-                x = float(all_numbers[j])
-                y = float(all_numbers[j+1])
-                coords.append((x, y))
+            # Tomar SOLO los X (pares)
+            xs = all_numbers[::2]
 
-            # Calcular centro
-            xs = [c[0] for c in coords]
+            if not xs:
+                print("⚠️ No se encontraron coordenadas")
+                return
+
             xmin = min(xs)
             xmax = max(xs)
             centro = (xmin + xmax) / 2
 
-            # Reescribir respetando formato original
-            idx = 0
-            for bl in block_lines:
+            # Crear copia editable
+            new_block_lines = block_lines.copy()
 
-                nums = re.findall(r'-?\d+\.\d+', bl)
+            count = 0
 
-                new_line = bl
+            for idx, (line_idx, start, end, original_str) in enumerate(number_positions):
 
-                for n in nums:
-                    if idx % 2 == 0:
-                        # es X
-                        x_old = float(n)
-                        x_new = x_old - centro
+                # Solo modificar X (pares)
+                if idx % 2 == 0:
 
-                        # mantener formato largo
-                        decimals = len(n.split('.')[-1])
-                        x_new_str = f"{x_new:.{decimals}f}"
+                    x_old = float(original_str)
+                    x_new = x_old - centro
 
-                        new_line = new_line.replace(n, x_new_str, 1)
+                    # Mantener formato original
+                    decimals = len(original_str.split('.')[-1])
+                    new_str = f"{x_new:.{decimals}f}"
+                    new_str = new_str.rjust(len(original_str))
 
-                    idx += 1
+                    line = new_block_lines[line_idx]
 
-                new_lines.append(new_line)
+                    new_line = (
+                        line[:start] +
+                        new_str +
+                        line[end:]
+                    )
+
+                    new_block_lines[line_idx] = new_line
+
+            # Agregar bloque modificado
+            new_lines.extend(new_block_lines)
 
             i += n_points + 1
             continue
