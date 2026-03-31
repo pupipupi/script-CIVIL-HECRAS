@@ -30,7 +30,7 @@ Si ya existe un archivo "geo.txt" se debe eliminar previamente.
 
 Ir a "Actions" y correr "Centrar Secciones HEC-RAS".
 
-Luego de que corra el script buscar en el resultado del proceso "Guardar geo_centrado.txt como archivo descargable" y luego la línea "Artifacts download URL: ...".
+Luego de que corra el script buscar en el resultado del proceso "Guardar geo_centrado.txt como artefacto descargable" y luego la línea "Artifacts download URL: ...".
 Pinchar en el link y descargar el .zip que contiene el nuevo archivo .txt transformado.
 
 Copiar la información de este .txt transformado y pegarla en una copia del archivo .g01 que genera HECRAS.
