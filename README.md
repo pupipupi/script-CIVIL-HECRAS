@@ -11,6 +11,6 @@ Luego importar este archivo .GEO nuevo en HECRAS como "GIS format" en "Geometric
 Seleccionar "SI (metric) units" y luego "Finished - Import Data". Deberían aparecer la geometría sin problemas.
 
 En HECRAS se debe corregir solo los "Reach Lengths" y moverlos todos 1 espacio hacia arriba, ya que estan corridos. La última sección debe tener distancia cero aguas abajo.
-Además se debe poner en la descripción de los transversales la información del .txt con las estaciones originales.
+Además se debe poner en la descripción de los transversales la información del .txt con las estaciones originales. Para ambas ediciones se accede desde "Tables" en "Geometric Data".
 
 Para volver a transformar otro archivo se debe repetir el proceso.
