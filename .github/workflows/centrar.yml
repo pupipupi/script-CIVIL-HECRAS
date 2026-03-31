@@ -24,11 +24,3 @@ jobs:
         with:
           name: geo_centrado
           path: geo_centrado.txt
-
-      - name: Confirmar y subir geo_centrado.txt al repositorio
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add geo_centrado.txt
-          git diff --cached --quiet || git commit -m "Auto: geo_centrado.txt actualizado"
-          git push
