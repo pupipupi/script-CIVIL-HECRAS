@@ -33,47 +33,49 @@ def centrar_secciones_txt(input_file):
 
             coords = []
 
-            # Leer coordenadas originales
-            for j in range(1, n_points + 1):
-                coord_line = lines[i + j]
+            # Leer todas las líneas del bloque
+            block_lines = lines[i+1:i+1+n_points]
 
-                # capturar formato exacto
-                m = re.match(r'(\s*)([-\d\.]+)(\s+)([-\d\.]+)(.*)', coord_line)
+            all_numbers = []
 
-                if not m:
-                    new_lines.append(coord_line)
-                    continue
+            # Extraer TODOS los números
+            for bl in block_lines:
+                nums = re.findall(r'-?\d+\.\d+', bl)
+                all_numbers.extend(nums)
 
-                x_str = m.group(2)
-                y_str = m.group(4)
+            # Convertir a pares (X,Y)
+            for j in range(0, len(all_numbers), 2):
+                x = float(all_numbers[j])
+                y = float(all_numbers[j+1])
+                coords.append((x, y))
 
-                x = float(x_str)
-                y = float(y_str)
-
-                coords.append((x, y, coord_line, m))
-
-            # calcular centro
+            # Calcular centro
             xs = [c[0] for c in coords]
             xmin = min(xs)
             xmax = max(xs)
             centro = (xmin + xmax) / 2
 
-            # reescribir manteniendo formato
-            for x, y, original_line, m in coords:
+            # Reescribir respetando formato original
+            idx = 0
+            for bl in block_lines:
 
-                new_x = x - centro
+                nums = re.findall(r'-?\d+\.\d+', bl)
 
-                # mantener largo original del número
-                new_x_str = f"{new_x:.{len(m.group(2).split('.')[-1])}f}"
-                new_x_str = new_x_str.rjust(len(m.group(2)))
+                new_line = bl
 
-                new_line = (
-                    m.group(1) +
-                    new_x_str +
-                    m.group(3) +
-                    m.group(4) +
-                    m.group(5)
-                )
+                for n in nums:
+                    if idx % 2 == 0:
+                        # es X
+                        x_old = float(n)
+                        x_new = x_old - centro
+
+                        # mantener formato largo
+                        decimals = len(n.split('.')[-1])
+                        x_new_str = f"{x_new:.{decimals}f}"
+
+                        new_line = new_line.replace(n, x_new_str, 1)
+
+                    idx += 1
 
                 new_lines.append(new_line)
 
