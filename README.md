@@ -1,3 +1,5 @@
+Procesar TXT
+
 Cargar el archivo de entrada *.GEO exportado desde CIVIL a HECRAS pero cambiar el nombre y extensión a "input.txt"
 Si ya existe un archivo "input.txt" se debe eliminar previamente.
 
@@ -14,3 +16,6 @@ En HECRAS se debe corregir solo los "Reach Lengths" y moverlos todos 1 espacio h
 Además se debe poner en la descripción de los transversales la información del .txt con las estaciones originales. Para ambas ediciones se accede desde "Tables" en "Geometric Data".
 
 Para volver a transformar otro archivo se debe repetir el proceso.
+
+
+
